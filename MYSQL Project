@@ -1,0 +1,61 @@
+**Library Management System**
+
+### Step 1: Database Schema
+
+First, we'll create the database schema for our Library Management System.
+
+```sql
+-- Create the library database
+CREATE DATABASE library;
+
+-- Use the library database
+USE library;
+
+-- Create the books table
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    genre VARCHAR(100),
+    published_year INT
+);
+
+-- Create the patrons table
+CREATE TABLE patrons (
+    patron_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    contact_info VARCHAR(255)
+);
+
+-- Create the transactions table
+CREATE TABLE transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_id INT,
+    patron_id INT,
+    borrow_date DATE,
+    return_date DATE,
+    FOREIGN KEY (book_id) REFERENCES books(book_id),
+    FOREIGN KEY (patron_id) REFERENCES patrons(patron_id)
+);
+```
+
+### Step 2: Insert Initial Data
+
+Next, we'll populate the tables with some initial data.
+
+```sql
+-- Insert sample books
+INSERT INTO books (title, author, genre, published_year) VALUES
+('The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction', 1925),
+('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1960),
+('1984', 'George Orwell', 'Dystopian', 1949);
+
+-- Insert sample patrons
+INSERT INTO patrons (name, contact_info) VALUES
+('John Doe', 'john.doe@example.com'),
+('Jane Smith', 'jane.smith@example.com');
+
+-- Insert sample transactions
+INSERT INTO transactions (book_id, patron_id, borrow_date, return_date) VALUES
+(1, 1, '2024-07-01', NULL),
+(2, 2, '2024-07-05', NULL);
