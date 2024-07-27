@@ -1,0 +1,29 @@
+### The Boooks table will have three Records:
+
++---------+-----------------------+---------------------+-----------+----------------+
+| book_id | title                 | author              | genre     | published_year |
++---------+-----------------------+---------------------+-----------+----------------+
+|       1 | The Great Gatsby      | F. Scott Fitzgerald | Fiction   |           1925 |
+|       2 | To Kill a Mockingbird | Harper Lee          | Fiction   |           1960 |
+|       3 | 1984                  | George Orwell       | Dystopian |           1949 |
++---------+-----------------------+---------------------+-----------+----------------+
+
+The Patrons table will Have two Records:
+
++-----------+-----------+----------------------+
+| patron_id | name      | contact_info         |
++-----------+-----------+----------------------+
+|         1 | John Doe  | john.doe@example.com |
+|         2 | Jane Smith| jane.smith@example.com|
++-----------+-----------+----------------------+
+
+The Transactions table will Have two Records:
+
++----------------+---------+-----------+-------------+-------------+
+| transaction_id | book_id | patron_id | borrow_date | return_date |
++----------------+---------+-----------+-------------+-------------+
+|              1 |       1 |         1 | 2024-07-01  | NULL        |
+|              2 |       2 |         2 | 2024-07-05  | NULL        |
++----------------+---------+-----------+-------------+-------------+
+
+
